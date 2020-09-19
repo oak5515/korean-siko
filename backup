@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const { send } = require('process');
 const client = new Discord.Client();
-const token = 'NzU2NTA4OTY5NzAyNTIzMDQw.X2S34Q.YKYzFxYut_mcAqjQyhf7x5Fulz0';
+const token = process.env.token;
 const welcomeChannelName = "안녕하세요!";
 const byeChannelName = "안녕히가세요!";
 const welcomeChannelComment = "어서오세요!";
