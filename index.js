@@ -9,6 +9,7 @@ const welcomeChannelName = "안녕하세요";
 const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
+const openpyxl
 
 client.on('ready', () => {
   console.log('켰다.');
@@ -51,7 +52,27 @@ client.on('message', (message) => {
   }
 
   if(message.content == '시코야 좋은 아침') {
-    return message.channel.send(`<@${message.author.id}>` + "님, 좋은 아침입니다.");
+    return message.channel.send(`<@${message.author.id}>` + "님, 좋은 아침입니다.")
+  }
+  
+  if(message.content == '시코야 좋은 점심') {
+    return message.channel.send(`<@${message.author.id}>` + "님, 좋은 점심입니다.")
+  }
+  
+  if(message.content == '시코야 좋은 저녁') {
+    return message.channel.send(`<@${message.author.id}>` + "님, 좋은 저녁입니다.")
+  }
+
+  if(message.content == '시코야 잘자') {
+    return message.channel.send(`<@${message.author.id}>` + "님, 안녕히 주무십시오.")
+  }
+
+  if(message.content == '시코야 잘잤니') {
+    return message.channel.send(`<@${message.author.id}>` + "님, 안녕히 주무셨습니까?")
+  }
+
+  if(message.content == '시코야 배고파') {
+    return message.channel.send(`<@${message.author.id}>` + "님, 식사를 하시는것을 추천드립니다.")
   }
 
   if(message.content == '시코야 안녕') {
@@ -68,6 +89,42 @@ client.on('message', (message) => {
 
   if(message.content == '시코야 연유병') {
     return message.channel.send('창조주님의 의남매님을 말씀하시는지요?')
+  }
+
+  if(message.content == '시코야 4딸라') {
+    return message.channel.send(`한국 원화로 약 4500원입니다.`)
+  }
+
+  if(message.content == '시코야 야인시대') {
+    return message.channel.send(`《야인시대》(野人時代)는 SBS에서 2002년 7월 29일부터 2003년 9월 30일까지 총 124회 동안 김두한의 일대기를 그린 대하드라마이다. 또한 야인시대의 최고 시청률은 야인시대의 제작사인 SBS를 비롯한 9개 지역 민방 네트워크를 기준으로 57.1%이다. 또한 인터넷 합성물로 인해 대한민국 방송 역사에 엄청나게 큰 한 획을 그은 텔레비전 드라마이며, 이에 관해 극중 심영 역을 맡은 김영인의 대사인 내가 고자라니로 인해 푸른 거탑을 비롯한 여러 방송에서 수많은 패러디가 쏟아져 나오기도 했다. -https://ko.wikipedia.org/wiki/%EC%95%BC%EC%9D%B8%EC%8B%9C%EB%8C%80`)
+  }
+
+  if(message.content == '시코야 시식둥이') {
+    return message.channel.send(`저의 어머니이십니다.`)
+  }
+
+  if(message.content == '시코야 코리안식스') {
+    return message.channel.send(`저의 아버지이십니다.`)
+  }
+
+  if(message.content == '시코야 애플민트둥이') {
+    return message.channel.send(`...`)
+  }
+
+  if(message.content == '시코야 사랑해') {
+    return message.channel.send(`인간의 감정에 대해서는 관련 자료가 없습니다.`)
+  }
+
+  if(message.content == '시코야 심영') {
+    return message.channel.send(`'야인시대'라는 드라마에서 상하이 조에 의해 성불구자가 된 사람입니다.`)
+  }
+
+  if(message.content == '시코야 결혼해줘') {
+    return message.channel.send(`***...진심이십니까?***`)
+  }
+
+  if(message.content == '시코야 귀여운척') {
+    return message.channel.send(`...일시적 오류로 인해 데이터를 불러오지 못했습니다.`)
   }
 
   if(message.content == '시코야 서버정보') {
