@@ -10,6 +10,24 @@ const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
 
+//엑셀 모듈 로드
+var XLSX = require('xlax');
+
+//단어학습
+if(message.content.startswith == '시코야 학습' && !message.content.startswith == '시코야 학습취소') {
+    var file = openpyxl.load.workbook("학습.xlsx")
+    var sheet = file.active
+    var learn = message.content.split(" ")
+    for(i in range(1, 51))
+        if(sheet["A" + str(i)].value == "-" || sheet["A" + str(i)].value == learn[1])
+            sheet["A" + str(i)].value = learn[1]
+            sheet["B" + str(i)].value = learn[2]
+            sheet["C" + str(i)].value = learn["<${message.author.id}>"]
+            await client.send_message(message.channel, "학습하였습니다.")
+            break
+    file.save("학습.xlsx")
+}
+
 var PythonShell = require('python-shell');
 
 PythonShell.run('Studying.py', function (err) {
