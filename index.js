@@ -9,6 +9,25 @@ const welcomeChannelName = "안녕하세요";
 const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
+const { PythonShell } = require("python-shell");
+
+let options = {
+  scriptPath: "C:\bot",
+  args: ["value1", "value2", "value3"]
+};
+PythonShell.run("Studying.py", options, function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});
+
+// .js
+var options = {
+  scriptPath: path.join(__dirname, "../python/"),
+  args: [JSON.stringify({ result }), JSON.stringify({ inputData })]
+};
+PythonShell.run("get_avg.py", options, function(err, data) {
+  res.status(200).json({ data: JSON.parse(data), success: true });
+});
 
 client.on('ready', () => {
   console.log('켰다.');

@@ -1,5 +1,15 @@
+import openpyxl
+# .py
+import json
+import sys
 
-  //대화 학습 시스템
+result = json.loads(sys.argv[1])['result']
+inputData = json.loads(sys.argv[2])['inputData']
+
+...
+
+print(json.dumps(result))
+
   if message.content.startswith("시코야 학습") and not message.content.startswith("시코야 학습취소"):
     file = openpyxl.load.workbook("학습.xlsx")
     sheet = file.active
@@ -8,12 +18,12 @@
         if sheet["A" + str(i)].value == "-" or sheet["A" + str(i)].value == learn[1]:
             sheet["A" + str(i)].value = learn[1]
             sheet["B" + str(i)].value = learn[2]
-            sheet["C" + str(i)].value = learn[`<${message.author.id}>`]
+            sheet["C" + str(i)].value = learn[<"<${message.author.id}>"]
             await client.send_message(message.channel, "학습하였습니다.")
             break
     file.save("학습.xlsx")
 
-  if message.content.startswith("시코야 어때 "):
+  if message.content.startswith("시코야 어때"):
     file = openpyxl.load.workbook("학습.xlsx")
     sheet = file.active
     memory = message.content.split(" ")
