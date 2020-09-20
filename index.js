@@ -9,24 +9,12 @@ const welcomeChannelName = "안녕하세요";
 const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
-const { PythonShell } = require("python-shell");
 
-let options = {
-  scriptPath: "C:\bot",
-  args: ["value1", "value2", "value3"]
-};
-PythonShell.run("Studying.py", options, function(err, data) {
+var PythonShell = require('python-shell');
+
+PythonShell.run('Studying.py', function (err) {
   if (err) throw err;
-  console.log(data);
-});
-
-// .js
-var options = {
-  scriptPath: path.join(__dirname, "../python/"),
-  args: [JSON.stringify({ result }), JSON.stringify({ inputData })]
-};
-PythonShell.run("get_avg.py", options, function(err, data) {
-  res.status(200).json({ data: JSON.parse(data), success: true });
+  console.log('finished');
 });
 
 client.on('ready', () => {
@@ -139,6 +127,14 @@ client.on('message', (message) => {
 
   if(message.content == '시코야 결혼해줘') {
     return message.channel.send(`***...진심이십니까?***`)
+  }
+
+  if(message.content == '시코야 김두한') {
+    return message.channel.send(`정치가이며, 드라마 '야인시대'의 주인공입니다.`)
+  }
+
+  if(message.content == '시코야 도수방 디스코드') {
+    return message.channel.send(`창조주님께서 저를 추가하고 싶어하시는 디스코드 서버입니다.`)
   }
 
   if(message.content == '시코야 귀여운척') {

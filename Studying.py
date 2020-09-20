@@ -1,16 +1,6 @@
 import openpyxl
-# .py
-import json
-import sys
 
-result = json.loads(sys.argv[1])['result']
-inputData = json.loads(sys.argv[2])['inputData']
-
-...
-
-print(json.dumps(result))
-
-  if message.content.startswith("시코야 학습") and not message.content.startswith("시코야 학습취소"):
+if message.content.startswith("시코야 학습") and not message.content.startswith("시코야 학습취소"):
     file = openpyxl.load.workbook("학습.xlsx")
     sheet = file.active
     learn = message.content.split(" ")
@@ -23,7 +13,7 @@ print(json.dumps(result))
             break
     file.save("학습.xlsx")
 
-  if message.content.startswith("시코야 어때"):
+if message.content.startswith("시코야 어때"):
     file = openpyxl.load.workbook("학습.xlsx")
     sheet = file.active
     memory = message.content.split(" ")
@@ -33,7 +23,7 @@ print(json.dumps(result))
             await client.send_message(message.channel, sheet["C" + str(i)].value + "님께서 가르쳐 주셨습니다.")
             break
 
-  if message.content.startswith("시코야 학습취소"):
+if message.content.startswith("시코야 학습취소"):
     file = openpyxl.load.workbook("학습.xlsx")
     sheet = file.active
     memory = message.content.split(" ")
