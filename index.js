@@ -10,56 +10,17 @@ const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
 
-//python
-var PythonShell = require('python-shell');
+//exel
+var XLSX = require("xlsx");
 
-var options = { 
-	mode: 'text ',
-	pythonOptions: ['-u'],
-	scriptPath: './', 
-};
+var workbook = XLSX.readFile("학습.xlsx");
 
-startpython = PythonShell('Studying.py');
+var firstWSheetName = workbook.SheetNames[0];
+var firstWSheet = workbook.Sheets[firstWSheetName];
 
-startpython.end(function (err) {
+message.channel.send( firstWSheet['A1'].v );
 
-	if (err) return done(err); 			
-
-	console.log('finished');
-
-}); 
-
-sendpython.send('hello world!');
-
-startpython = new PythonShell('Studying.py', options);
-
-startpython = PythonShell.run('Studying.py', function (err) {
-
-	if (err) throw err;
-
-	console.log('finished');
-
-});
-
-pyshell = new PythonShell('Studying.py',{scriptPath:"./", pythonOptions: ['-u']});
-
-PythonShell.run('Studying.py', options, function (err, results) {
-
-	if (err) throw err;
-
-	// results is an array consisting of messages collected during execution 
-
-	console.log('results: %j', results);
-
-});
-
-PythonShell.on('message', function (message) {
-
-	// received a message sent from the Python script (a simple "print" statement) 
-
-	// console.log(message);
-
-});
+XLSX.writeFile(workbook, 'out.xlsx');
 
 
 client.on('ready', () => {
