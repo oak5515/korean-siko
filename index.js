@@ -15,7 +15,7 @@ var XLSX = require("xlsx");
 
 var workbook = XLSX.readFile("학습.xlsx");
 
-if(message.content == '시코야 좋은 점심') {
+if(message.content == '시코야 엑셀테스트') {
   var firstWSheetName = workbook.SheetNames[0];
   var firstWSheet = workbook.Sheets[firstWSheetName];
 
