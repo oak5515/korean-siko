@@ -4,7 +4,7 @@ if message.content.startswith("시코야 학습") and not message.content.starts
     file = openpyxl.load.workbook("학습.xlsx")
     sheet = file.active
     learn = message.content.split(" ")
-    for i in range(1, 51)
+    for i in range(1, 51):
         if sheet["A" + str(i)].value == "-" or sheet["A" + str(i)].value == learn[1]:
             sheet["A" + str(i)].value = learn[1]
             sheet["B" + str(i)].value = learn[2]

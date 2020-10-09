@@ -13,20 +13,53 @@ const byeChannelComment = "안녕히가세요.";
 //python
 var PythonShell = require('python-shell');
 
-var options = {
-
-  mode: 'text',
-  pythonPath: '',
-  pythonOptions: ['-u'],
-  scriptPath: '',
-  args: ['value1', 'value2', 'value3']
+var options = { 
+	mode: 'text ',
+	pythonOptions: ['-u'],
+	scriptPath: './', 
 };
 
-PythonShell.run('Studying.py', options, function (err, results) {
-  if (err) throw err;
-  console.log('results: %j', results);
+startpython = PythonShell('Studying.py');
+
+startpython.end(function (err) {
+
+	if (err) return done(err); 			
+
+	console.log('finished');
+
+}); 
+
+sendpython.send('hello world!');
+
+startpython = new PythonShell('Studying.py', options);
+
+startpython = PythonShell.run('Studying.py', function (err) {
+
+	if (err) throw err;
+
+	console.log('finished');
+
 });
 
+pyshell = new PythonShell('Studying.py',{scriptPath:"./", pythonOptions: ['-u']});
+
+PythonShell.run('Studying.py', options, function (err, results) {
+
+	if (err) throw err;
+
+	// results is an array consisting of messages collected during execution 
+
+	console.log('results: %j', results);
+
+});
+
+PythonShell.on('message', function (message) {
+
+	// received a message sent from the Python script (a simple "print" statement) 
+
+	// console.log(message);
+
+});
 
 
 client.on('ready', () => {
