@@ -12,15 +12,14 @@ const byeChannelComment = "안녕히가세요.";
 
 //exel
 var XLSX = require("xlsx");
-var workbook = XLSX.readFile("학습.xlsx");
-var firstWSheetName = workbook.SheetNames[0];
-var firstWSheet = workbook.Sheets[firstWSheetName];
+var workbook = XLSX.readFile('학습.xlsx') 
+var SheetName = workbook.SheetNames[0];
+var Sheet = workbook.Sheets[SheetName];
 
 if(message.content == '시코야 엑셀테스트') {
+  XLSX.readFile("학습.xlsx");
+  message.channel.send(Sheet['A1'].v);
 
-  message.channel.send( firstWSheet['A1'].v );
-
-  XLSX.writeFile(workbook, 'out.xlsx');
 };
 
 client.on('ready', () => {
