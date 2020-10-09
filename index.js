@@ -12,12 +12,11 @@ const byeChannelComment = "안녕히가세요.";
 
 //exel
 var XLSX = require("xlsx");
-
 var workbook = XLSX.readFile("학습.xlsx");
+var firstWSheetName = workbook.SheetNames[0];
+var firstWSheet = workbook.Sheets[firstWSheetName];
 
 if(message.content == '시코야 엑셀테스트') {
-  var firstWSheetName = workbook.SheetNames[0];
-  var firstWSheet = workbook.Sheets[firstWSheetName];
 
   message.channel.send( firstWSheet['A1'].v );
 
