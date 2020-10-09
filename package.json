@@ -12,6 +12,7 @@
     "moment": "^2.20.1",
     "moment-duration-format": "^2.2.1",
     "moment-timezone": "^0.5.28",
+    "python-shell": "^2.0.2",
     "xlsx": "^0.16.7"
   }
 }
