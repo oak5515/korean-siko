@@ -10,17 +10,6 @@ const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
 
-//exel
-var XLSX = require("xlsx");
-var workbook = XLSX.readFile('학습.xlsx') 
-var SheetName = workbook.SheetNames[0];
-var Sheet = workbook.Sheets[SheetName];
-
-if(message.content == '시코야 엑셀테스트') {
-  XLSX.readFile('학습.xlsx');
-  return message.channel.send(Sheet['A1'].v);
-};
-
 client.on('ready', () => {
   console.log('켰다.');
   client.user.setPresence({ game: { name: '시코야 도움말을 입력하세요.' }, status: 'online' })
@@ -175,6 +164,18 @@ client.on('message', (message) => {
     embed.setTimestamp()
     message.channel.send(embed);
   }
+
+  
+  //exel
+  var XLSX = require("xlsx");
+  var workbook = XLSX.readFile('학습.xlsx') 
+  var SheetName = workbook.SheetNames[0];
+  var Sheet = workbook.Sheets[SheetName];
+
+  if(message.content == '시코야 엑셀테스트') {
+    XLSX.readFile('학습.xlsx');
+    return message.channel.send(Sheet['A1'].v);
+  };
 
   //시코봇 도움말
   if(message.content == '시코야 자기소개') {
