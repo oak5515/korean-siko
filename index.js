@@ -17,7 +17,7 @@ var SheetName = workbook.SheetNames[0];
 var Sheet = workbook.Sheets[SheetName];
 
 if(message.content == '시코야 엑셀테스트') {
-  XLSX.readFile("학습.xlsx");
+  XLSX.readFile('학습.xlsx');
   return message.channel.send(Sheet['A1'].v);
 };
 
