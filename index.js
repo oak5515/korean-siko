@@ -134,6 +134,11 @@ client.on('message', (message) => {
     return message.channel.send(`...일시적 오류로 인해 데이터를 불러오지 못했습니다.`)
   }
 
+  if(message.content == '시코야 일해') {
+    return message.channel.send("**당신이나 일하세요**").then((sentMessage) => sentMessage.edit("*(...네트워크에 오류가 발생했습니다.)*"))
+  }
+  
+
   if(message.content == '시코야 서버정보') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/attachments/756513236823572493/756782002748915712/20200918_224442.png';
