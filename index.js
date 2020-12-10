@@ -135,7 +135,10 @@ client.on('message', (message) => {
   }
 
   if(message.content == '시코야 일해') {
-    return message.channel.send("**당신이나 일하세요**").then((sentMessage) => sentMessage.edit("*(...네트워크에 오류가 발생했습니다.)*"))
+    return message.channel.send("**당신이나 일하세요**").then(
+      setTimeout(function() {
+        (sentMessage) => sentMessage.edit("*(...네트워크에 오류가 발생했습니다.)*")
+      }, 1500));
   }
   
 
