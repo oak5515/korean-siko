@@ -84,6 +84,10 @@ client.on('message', (message) => {
     return message.channel.send('저를 만들어주신 창조주님이십니다.')
   }
 
+  if(message.content == '시코야 아이스커피') {
+    return message.channel.send('<:CHSACG:766567629959593994>')
+  }
+
   if(message.content == '시코야 김승뭔') {
     return message.channel.send('창조주님의 의형제님을 말씀하시는지요?')
   }
@@ -139,7 +143,7 @@ client.on('message', (message) => {
   if(message.content == '시코야 일해') {
     message.reply("**당신이나 일하세요**")
     .then(msg => {
-                  msg.edit({ timeout: 1500},"*(...네트워크에 오류가 발생했습니다.)*");
+                  msg.edit("*(...네트워크에 오류가 발생했습니다.)*");
               })
   }
 
