@@ -9,6 +9,8 @@ const welcomeChannelName = "안녕하세요";
 const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
+//const msg = await message.channel.send("**당신이나 일하세요**");
+//msg.edit("*(...네트워크에 오류가 발생했습니다.)*");
 
 client.on('ready', () => {
   console.log('켰다.');
@@ -135,11 +137,14 @@ client.on('message', (message) => {
   }
 
   if(message.content == '시코야 일해') {
-    return message.channel.send("**당신이나 일하세요**").then(
-      setTimeout(function() {
-        (sentMessage) => sentMessage.edit("*(...네트워크에 오류가 발생했습니다.)*")
-      }, 1500));
+    message.reply("**당신이나 일하세요**")
+    .then(msg => {
+                  msg.edit("*(...네트워크에 오류가 발생했습니다.)*",{ timeout: 1500 /*time unitl delete in milliseconds*/});
+              })
   }
+
+
+
   
 
   if(message.content == '시코야 서버정보') {
