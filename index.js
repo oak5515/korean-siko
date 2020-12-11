@@ -60,7 +60,7 @@ client.on('message', async message => {
     }
     
   }
-
+})
 
 client.on('message', (message) => { 
   MessageSave(message)
@@ -499,7 +499,7 @@ client.on('message', (message) => {
     }
   }
 
-})});
+});
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
