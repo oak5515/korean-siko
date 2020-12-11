@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
 const moment = require("moment");
-const prefix = "시코야";
+const prefix = "시코야 ";
 require("moment-duration-format");
 const momenttz = require('moment-timezone');
 const MessageAdd = require('./db/message_add.js')
@@ -51,16 +51,18 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).split(" "); // 메세지에서 프리픽스의 글자 수만큼 잘라내고, String.split 메서드를 이용하여 Array로 바꾼다.
     const command = args.shift().toLowerCase(); // Array의 첫번 째 값을 없애고 반환하는 Array.shift 메서드에 String.toLowerCase 메서드로 소문자화한다.
 
-    if(command === ' 현재 핑') {
+    if(command === '현재 핑') {
         return message.reply('지금 올라오는 메세지와 방금 입력하신 메세지의 간격이 현재 핑 상태입니다.');
      }
 
-    if(command === ' 안녕') {
+    if(command === '안녕') {
         return message.channel.send("안녕하십니까, " + `<@${message.author.id}>` + "님.")
     }
     
   }
 
+
+client.on('message', (message) => { 
   MessageSave(message)
   if(message.author.bot) return;
   
@@ -347,6 +349,11 @@ client.on('message', async message => {
     return message.channel.send(Sheet['A1'].v);
   };
 
+  if(message.content == '시코야 엑셀테스트') {
+    XLSX.readFile('학습.xlsx');
+    return message.channel.send(Sheet['A1'].v);
+  };
+
   //시코봇 도움말
   if(message.content == '시코야 자기소개') {
     let img = 'https://cdn.discordapp.com/attachments/756513236823572493/756782002748915712/20200918_224442.png';
@@ -491,7 +498,8 @@ client.on('message', async message => {
         .catch(console.error)
     }
   }
-});
+
+})});
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
