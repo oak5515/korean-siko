@@ -148,7 +148,7 @@ client.on('message', (message) => {
     return Math.floor(Math.random() * (max - min)) + min;
   }
   
-  if (msg.content.toLowerCase().startsWith("*8ball")) { //The 8ball Message
+  if (message.content == '*8ball') { //The 8ball Message
       var msg1 = Array(5); 
       msg1[1] = "Yes";
         msg1[2] = "No";
@@ -180,10 +180,12 @@ client.on('message', (message) => {
       }
       }
   
-        if (msg.content.toLowerCase().startsWith("*random")) {
-          msg.channel.sendMessage("The number is "+ getRandomInt(1, 1000));
-        }
-          if (msg.content.toLowerCase().startsWith("*coinflip")) { //The coinflip Message
+  if (message.content == '*random') {
+      msg.channel.sendMessage("The number is "+ getRandomInt(1, 1000));
+    }
+
+
+ if (message.content == '*coinflip') { //The coinflip Message
       var msg2 = Array(2);
       msg2[1] = "Heads";
         msg2[2] = "Tails";
@@ -195,7 +197,8 @@ client.on('message', (message) => {
         msg.channel.sendMessage(msg2[2]);
       }
     }
-      if (msg.content.toLowerCase().startsWith("*rps")) { //The rps Message
+
+  if (message.content == '*rps') { //The rps Message
       var msg1 = Array(3);
       msg1[1] = "Rock :black_circle:";
         msg1[2] = "Paper :page_facing_up:";
