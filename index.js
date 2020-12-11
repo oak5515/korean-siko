@@ -51,7 +51,7 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).split(" "); // 메세지에서 프리픽스의 글자 수만큼 잘라내고, String.split 메서드를 이용하여 Array로 바꾼다.
     const command = args.shift().toLowerCase(); // Array의 첫번 째 값을 없애고 반환하는 Array.shift 메서드에 String.toLowerCase 메서드로 소문자화한다.
 
-    if (command === '') { //The 8ball Message
+    if (command === '' || ' ') { //The 8ball Message
       var msg1 = Array(5); 
       msg1[1] = "네, 부르셨습니까?";
       msg1[2] = "부르셨나요?";
@@ -90,15 +90,20 @@ client.on('message', async message => {
         .catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
       }
       }
-  }
-  MessageSave(message)
-  if(message.author.bot) return;
-  if(message.content == '시코야 현재 핑') {
-    return message.reply('지금 올라오는 메세지와 방금 입력하신 메세지의 간격이 현재 핑 상태입니다.');
+
+      if(message.content == ' 현재 핑') {
+        return message.reply('지금 올라오는 메세지와 방금 입력하신 메세지의 간격이 현재 핑 상태입니다.');
+      }
+
+      
   }
 
+  MessageSave(message)
+  if(message.author.bot) return;
+  
+
   //시코봇 기타 말
-  if (message.content == 'dd시코야') { //The 8ball Message
+  if (message.content == '쀼삽겹살순뿌겹살 시코야') { //The 8ball Message
     var msg1 = Array(5); 
     msg1[1] = "네, 부르셨습니까?";
     msg1[2] = "부르셨나요?";
