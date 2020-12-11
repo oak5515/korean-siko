@@ -79,7 +79,7 @@ client.on('message', (message) => {
           message.channel.send(msg1[4]);
         }
     } 
-    else if (x <= 12 ) { 
+    else if (x <= 19 ) { 
       message.channel.send(msg1[5]);
     }
     else {
