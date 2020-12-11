@@ -39,6 +39,12 @@ client.on("messageUpdate", (message) => {
   MessageSave(message, true)
 });
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 client.on('message', (message) => {
   MessageSave(message)
 
@@ -49,9 +55,47 @@ client.on('message', (message) => {
   }
 
   //시코봇 기타 말
-  if(message.content == '시코야') {
-    return message.reply('부르셨습니까?');
-  }
+  if (message.content == '시코야') { //The 8ball Message
+    var msg1 = Array(5); 
+    msg1[1] = "네, 부르셨습니까?";
+    msg1[2] = "부르셨나요?";
+    msg1[3] = "저는 여기 있습니다.";
+    msg1[4] = "부르셨습니까?"
+    msg1[5] = "네, 어떤 일로 부르셨나요?"
+    msg1[6] = "*(커피 엎어지는 소리)*" 
+        var x = getRandomInt(0, 20);
+    if (x < 5){ 
+         if (x < 3){
+          message.channel.send(msg1[1]);
+    }
+    else {
+      message.channel.send(msg1[3]);
+    }
+    }
+    else if (x<= 9) {
+      if (x >= 7){
+        message.channel.send(msg1[2]); }
+        else{
+          message.channel.send(msg1[4]);
+        }
+    } 
+    else if (x <= 12 ) { 
+      message.channel.send(msg1[5]);
+    }
+    else {
+      message.channel.send(msg1[6])
+    }
+
+    if(message.channel.send(msg1[6])) {
+      message.channel.send("***아놔 왜 불렀냐 인간***")
+      .then(msg => {
+                    msg.delete({ timeout: 600 /*time unitl delete in milliseconds*/});
+                    message.channel.send("**앗, 커피가 엎질러졌네요..**");
+                })
+      .catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+    }
+    }
+
 
   if(message.content == '시코야 좋은 아침') {
     return message.channel.send(`<@${message.author.id}>` + "님, 좋은 아침입니다.")
@@ -140,13 +184,6 @@ client.on('message', (message) => {
   if(message.content == '시코야 귀여운척') {
     return message.channel.send(`...일시적 오류로 인해 데이터를 불러오지 못했습니다.`)
   }
-
-
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
   
   if (message.content.startsWith('시코야 가능')) { //The 8ball Message
       var msg1 = Array(5); 
@@ -188,8 +225,8 @@ client.on('message', (message) => {
 
  if (message.content.startsWith('시코야 동전')) { //The coinflip Message
       var msg2 = Array(2);
-      msg2[1] = "앞면이 나왔습니다.";
-        msg2[2] = "뒷면이 나왔습니다.";
+      msg2[1] = ":coin: 앞면이 나왔습니다.";
+        msg2[2] = ":coin: 뒷면이 나왔습니다.";
           var x = getRandomInt(0, 8);
       if (x < 4){
         message.channel.send(msg2[1]);
