@@ -148,14 +148,14 @@ client.on('message', (message) => {
     return Math.floor(Math.random() * (max - min)) + min;
   }
   
-  if (message.content == '*8ball') { //The 8ball Message
+  if (message.content.startsWith == '시코야 가능') { //The 8ball Message
       var msg1 = Array(5); 
-      msg1[1] = "Yes";
-      msg1[2] = "No";
-      msg1[3] = "Maybe :wink:";
-      msg1[4] = "Without a doubt.";
-      msg1[5] = "I Honestly Have No Idea :neutral_face:"
-      msg1[6] = "Highly Unlikely" 
+      msg1[1] = "가능합니다.";
+      msg1[2] = "아니요, 불가능합니다.";
+      msg1[3] = "아마도요. :wink:";
+      msg1[4] = "글쎄요. 가능할까요?";
+      msg1[5] = "말씀드리기 애매하네요. :neutral_face:"
+      msg1[6] = "충분히 가능할 것 같습니다." 
           var x = getRandomInt(0, 20);
       if (x < 5){ 
            if (x < 3){
@@ -180,15 +180,16 @@ client.on('message', (message) => {
       }
       }
   
+
   if (message.content == '*random') {
-      mmessage.channel.send("The number is "+ getRandomInt(1, 1000));
+      mmessage.channel.send("랜덤 추첨 번호는.. " + getRandomInt(1, 1000) + " 입니다.");
     }
 
 
- if (message.content == '*coinflip') { //The coinflip Message
+ if (message.content.startsWith == '시코야 동전') { //The coinflip Message
       var msg2 = Array(2);
-      msg2[1] = "Heads";
-        msg2[2] = "Tails";
+      msg2[1] = "앞면이 나왔습니다.";
+        msg2[2] = "뒷면이 나왔습니다.";
           var x = getRandomInt(0, 8);
       if (x < 4){
         message.channel.send(msg2[1]);
@@ -198,11 +199,11 @@ client.on('message', (message) => {
       }
     }
 
-  if (message.content == '*rps') { //The rps Message
+  if (message.content == '시코야 가위바위보') { //The rps Message
       var msg1 = Array(3);
-      msg1[1] = "Rock :black_circle:";
-        msg1[2] = "Paper :page_facing_up:";
-      msg1[3] = "Scissors :scissors:"
+      msg1[1] = "바위 입니다. :black_circle:";
+        msg1[2] = "보 입니다. :page_facing_up:";
+      msg1[3] = "가위 입니다. :scissors:"
           var x = getRandomInt(0, 9);
       if (x < 6){
            if (x < 3){
@@ -217,7 +218,7 @@ client.on('message', (message) => {
       }
     }
 
-    
+
   if(message.content == '시코야 일해') {
         message.channel.send("**당신이나 일하세요**")
             .then(msg => {
