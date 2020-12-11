@@ -344,9 +344,9 @@ client.on('message', (message) => {
   var SheetName = workbook.SheetNames[0];
   var Sheet = workbook.Sheets[SheetName];
 
-  if(message.content == '시코야 엑셀테스트') {
+  if(message.content.startsWith('시코야 학습')) {
     XLSX.readFile('학습.xlsx');
-    return message.channel.send(Sheet['A1'].v);
+    return message.channel.send(Sheet['A2'].v);
   };
 
   if(message.content == '시코야 엑셀테스트') {
