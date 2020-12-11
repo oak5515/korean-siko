@@ -41,6 +41,7 @@ client.on("messageUpdate", (message) => {
 
 client.on('message', (message) => {
   MessageSave(message)
+
   if(message.author.bot) return;
 
   if(message.content == '시코야 현재 핑') {
@@ -141,8 +142,6 @@ client.on('message', (message) => {
   }
 
   if(message.content.startsWith("시코야 일해")) {
-    const usere = message.mentions.users.first();
-    if (usere) {
         message.channel.send("**당신이나 일하세요**")
             .then(msg => {
                 setTimeout(function() {
@@ -150,10 +149,10 @@ client.on('message', (message) => {
                 }, 2000);
             })
     }
-}
+
 
   
-  
+
 
 
   if(message.content == '시코야 서버정보') {
