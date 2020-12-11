@@ -151,7 +151,7 @@ client.on('message', (message) => {
   if (message.content == '*8ball') { //The 8ball Message
       var msg1 = Array(5); 
       msg1[1] = "Yes";
-        msg1[2] = "No";
+      msg1[2] = "No";
       msg1[3] = "Maybe :wink:";
       msg1[4] = "Without a doubt.";
       msg1[5] = "I Honestly Have No Idea :neutral_face:"
@@ -159,29 +159,29 @@ client.on('message', (message) => {
           var x = getRandomInt(0, 20);
       if (x < 5){ 
            if (x < 3){
-        msg.channel.sendMessage(msg1[1]);
+            message.channel.send(msg1[1]);
       }
       else {
-                 msg.channel.sendMessage(msg1[3]);
+        message.channel.send(msg1[3]);
       }
       }
       else if (x<= 9) {
         if (x >= 7){
-        msg.channel.sendMessage(msg1[2]); }
+          message.channel.send(msg1[2]); }
           else{
-                     msg.channel.sendMessage(msg1[4]);
+            message.channel.send(msg1[4]);
           }
       } 
       else if (x <= 12 ) { 
-        msg.channel.sendMessage(msg1[5]);
+        message.channel.send(msg1[5]);
       }
       else {
-        msg.channel.sendMessage(msg1[6])
+        message.channel.send(msg1[6])
       }
       }
   
   if (message.content == '*random') {
-      msg.channel.sendMessage("The number is "+ getRandomInt(1, 1000));
+      mmessage.channel.send("The number is "+ getRandomInt(1, 1000));
     }
 
 
@@ -191,10 +191,10 @@ client.on('message', (message) => {
         msg2[2] = "Tails";
           var x = getRandomInt(0, 8);
       if (x < 4){
-        msg.channel.sendMessage(msg2[1]);
+        message.channel.send(msg2[1]);
       }
       else{
-        msg.channel.sendMessage(msg2[2]);
+        message.channel.send(msg2[2]);
       }
     }
 
@@ -206,17 +206,18 @@ client.on('message', (message) => {
           var x = getRandomInt(0, 9);
       if (x < 6){
            if (x < 3){
-        msg.channel.sendMessage(msg1[1]);
+            message.channel.send(msg1[1]);
       }
       else{
-                 msg.channel.sendMessage(msg1[3]);
+        message.channel.send(msg1[3]);
       }
       }
       else{ 
-        msg.channel.sendMessage(msg1[2]);
+        message.channel.send(msg1[2]);
       }
     }
 
+    
   if(message.content == '시코야 일해') {
         message.channel.send("**당신이나 일하세요**")
             .then(msg => {
