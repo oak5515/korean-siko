@@ -224,23 +224,23 @@ client.on('message', (message) => {
         msg1[4] = "**2등!** 오늘 운이 좋으시네요?";
         msg1[5] = "**1등!!** 대박! 행운이 넘치시네요!"
         msg1[6] = "**0등...?** 엥..? 이게 왜 나오지?" 
-            var x = getRandomInt(0, 21);
-        if (x < 15){ 
-             if (x < 11){
+            var x = getRandomInt(0, 91);
+        if (x < 81){ 
+             if (x < 71){
               message.channel.send(msg1[1]);
         }
         else {
           message.channel.send(msg1[2]);
         }
         }
-        else if (x<= 19) {
-          if (x >= 18){
+        else if (x<= 88) {
+          if (x >= 86){
             message.channel.send(msg1[4]); }
             else{
               message.channel.send(msg1[3]);
             }
         } 
-        else if (x = 20 ) { 
+        else if (x <= 90 ) { 
           message.channel.send(msg1[5]);
         }
         else {
