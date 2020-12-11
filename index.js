@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
 const moment = require("moment");
+const prefix = '시코야 ';
 require("moment-duration-format");
 const momenttz = require('moment-timezone');
 const MessageAdd = require('./db/message_add.js')
@@ -45,11 +46,19 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-client.on('message', (message) => {
+client.on('message', async message => {
+  if (message.content.startsWith(prefix)) {
+    const args = message.content.slice(prefix.length).split(" "); // 메세지에서 프리픽스의 글자 수만큼 잘라내고, String.split 메서드를 이용하여 Array로 바꾼다.
+    const command = args.shift().toLowerCase(); // Array의 첫번 째 값을 없애고 반환하는 Array.shift 메서드에 String.toLowerCase 메서드로 소문자화한다.
+
+    if (command === "ping") { // discord.Message.content 속성이 'ping'과 같을 떄
+        message.reply("pong"); // discord.Message.reply 메서드로 'pong'을 전송
+        // 정말 ping (지연시간) 을 전송하고 싶다면 client.ws 객체의 ping 속성을 이용하자.
+        // message.reply(Math.round(client.ws.ping));
+    }
+  }
   MessageSave(message)
-
   if(message.author.bot) return;
-
   if(message.content == '시코야 현재 핑') {
     return message.reply('지금 올라오는 메세지와 방금 입력하신 메세지의 간격이 현재 핑 상태입니다.');
   }
