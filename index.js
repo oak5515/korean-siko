@@ -201,9 +201,9 @@ client.on('message', (message) => {
 
   if (message.content == '시코야 가위바위보') { //The rps Message
       var msg1 = Array(3);
-      msg1[1] = "바위 입니다. :black_circle:";
-        msg1[2] = "보 입니다. :page_facing_up:";
-      msg1[3] = "가위 입니다. :scissors:"
+      msg1[1] = "바위 입니다. :fist:";
+        msg1[2] = "보 입니다. :hand_splayed:";
+      msg1[3] = "가위 입니다. :v:"
           var x = getRandomInt(0, 9);
       if (x < 6){
            if (x < 3){
