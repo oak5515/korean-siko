@@ -88,7 +88,7 @@ client.on('message', (message) => {
                       message.channel.send("***아놔 왜 불렀냐 인간***").then(msg => {
                       setTimeout(function() {
                           msg.edit("***앗, 커피가 엎질러졌네요...***")
-                      }, 600);
+                      }, 700);
                   })
                 })
       .catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
@@ -216,6 +216,38 @@ client.on('message', (message) => {
       }
       }
   
+      if (message.content.startsWith('시코야 도박')) { //The 8ball Message
+        var msg1 = Array(5); 
+        msg1[1] = "**꽝!** 아쉽습니다...";
+        msg1[2] = "**4등!** 괜찮은 수확이네요.";
+        msg1[3] = "**3등!** 오 좋은데요?";
+        msg1[4] = "**2등!** 오늘 운이 좋으시네요?";
+        msg1[5] = "**1등!!** 대박! 행운이 넘치시네요!"
+        msg1[6] = "**0등...?** 엥..? 이게 왜 나오지?" 
+            var x = getRandomInt(0, 21);
+        if (x < 15){ 
+             if (x < 11){
+              message.channel.send(msg1[1]);
+        }
+        else {
+          message.channel.send(msg1[2]);
+        }
+        }
+        else if (x<= 19) {
+          if (x >= 18){
+            message.channel.send(msg1[4]); }
+            else{
+              message.channel.send(msg1[3]);
+            }
+        } 
+        else if (x = 20 ) { 
+          message.channel.send(msg1[5]);
+        }
+        else {
+          message.channel.send(msg1[6])
+        }
+        }
+    
 
   if (message.content == '시코야 랜덤') {
       message.channel.send("랜덤 추첨 번호는.. " + getRandomInt(1, 1000) + " 입니다.");
