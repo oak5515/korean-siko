@@ -51,8 +51,8 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).split(" "); // 메세지에서 프리픽스의 글자 수만큼 잘라내고, String.split 메서드를 이용하여 Array로 바꾼다.
     const command = args.shift().toLowerCase(); // Array의 첫번 째 값을 없애고 반환하는 Array.shift 메서드에 String.toLowerCase 메서드로 소문자화한다.
 
-    if (command === "ping") { // discord.Message.content 속성이 'ping'과 같을 떄
-        message.reply("pong"); // discord.Message.reply 메서드로 'pong'을 전송
+    if (command === null) { // discord.Message.content 속성이 null과 같을 떄
+        message.channel.send("죄송합니다. 명령어를 다시 한번 확인 해주시겠어요?"); // discord.Message.reply 메서드로 'pong'을 전송
         // 정말 ping (지연시간) 을 전송하고 싶다면 client.ws 객체의 ping 속성을 이용하자.
         // message.reply(Math.round(client.ws.ping));
     }
