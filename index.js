@@ -84,10 +84,12 @@ client.on('message', (message) => {
     }
     else {
       message.channel.send(msg1[6])
-      message.channel.send("***아놔 왜 불렀냐 인간***")
       .then(msg => {
-                    msg.delete({ timeout: 800 /*time unitl delete in milliseconds*/});
-                    message.channel.send("**앗, 커피가 엎질러졌네요..**");
+                      message.channel.send("***아놔 왜 불렀냐 인간***").then(msg => {
+                      setTimeout(function() {
+                          msg.edit("***앗, 커피가 엎질러졌네요...***")
+                      }, 800);
+                  })
                 })
       .catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
     }
