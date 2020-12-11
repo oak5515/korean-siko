@@ -88,7 +88,7 @@ client.on('message', (message) => {
                       message.channel.send("***아놔 왜 불렀냐 인간***").then(msg => {
                       setTimeout(function() {
                           msg.edit("***앗, 커피가 엎질러졌네요...***")
-                      }, 800);
+                      }, 600);
                   })
                 })
       .catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
