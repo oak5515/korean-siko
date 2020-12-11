@@ -150,11 +150,6 @@ client.on('message', (message) => {
             })
     }
 
-
-  
-
-
-
   if(message.content == '시코야 서버정보') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/attachments/756513236823572493/756782002748915712/20200918_224442.png';
