@@ -143,12 +143,12 @@ client.on('message', (message) => {
   if(message.content == '시코야 일해') {
     message.reply("**당신이나 일하세요**")
     .then(msg => {
-                  msg.edit("*(...네트워크에 오류가 발생했습니다.)*",{timeout: 1000});
+                  msg.edit("*(...네트워크에 오류가 발생했습니다.)*",{timeout: 3000});
               })
     .catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);  
   }
 
- 
+
 
   
   
