@@ -148,7 +148,7 @@ client.on('message', (message) => {
     return Math.floor(Math.random() * (max - min)) + min;
   }
   
-  if (message.content.startsWith == '시코야 가능') { //The 8ball Message
+  if (message.content.startsWith('시코야 가능')) { //The 8ball Message
       var msg1 = Array(5); 
       msg1[1] = "가능합니다.";
       msg1[2] = "아니요, 불가능합니다.";
@@ -181,12 +181,12 @@ client.on('message', (message) => {
       }
   
 
-  if (message.content == '*random') {
+  if (message.content == '시코야 랜덤') {
       mmessage.channel.send("랜덤 추첨 번호는.. " + getRandomInt(1, 1000) + " 입니다.");
     }
 
 
- if (message.content.startsWith == '시코야 동전') { //The coinflip Message
+ if (message.content.startsWith('시코야 동전')) { //The coinflip Message
       var msg2 = Array(2);
       msg2[1] = "앞면이 나왔습니다.";
         msg2[2] = "뒷면이 나왔습니다.";
