@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
 const moment = require("moment");
-const prefix = '시코야';
+const prefix = '시코야 ';
 require("moment-duration-format");
 const momenttz = require('moment-timezone');
 const MessageAdd = require('./db/message_add.js')
@@ -51,7 +51,7 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).split(" "); // 메세지에서 프리픽스의 글자 수만큼 잘라내고, String.split 메서드를 이용하여 Array로 바꾼다.
     const command = args.shift().toLowerCase(); // Array의 첫번 째 값을 없애고 반환하는 Array.shift 메서드에 String.toLowerCase 메서드로 소문자화한다.
 
-    if (message.content == '' || ' ') { //The 8ball Message
+    if (message.content == '') { //The 8ball Message
       var msg1 = Array(5); 
       msg1[1] = "네, 부르셨습니까?";
       msg1[2] = "부르셨나요?";
@@ -91,11 +91,15 @@ client.on('message', async message => {
       }
       }
 
-      if(message.content == ' 현재 핑') {
+      if(message.content == '현재 핑') {
         return message.reply('지금 올라오는 메세지와 방금 입력하신 메세지의 간격이 현재 핑 상태입니다.');
       }
 
 
+      if(message.content == '안녕') {
+        return message.channel.send("안녕하십니까, " + `<@${message.author.id}>` + "님.")
+      }
+    
   }
 
   MessageSave(message)
@@ -166,10 +170,6 @@ client.on('message', async message => {
 
   if(message.content == '시코야 배고파') {
     return message.channel.send(`<@${message.author.id}>` + "님, 식사를 하시는것을 추천드립니다.")
-  }
-
-  if(message.content == '시코야 안녕') {
-    return message.channel.send("안녕하십니까, " + `<@${message.author.id}>` + "님.")
   }
 
   if(message.content == '시코야 채아리') {
