@@ -146,7 +146,7 @@ client.on('message', (message) => {
             .then(msg => {
                 setTimeout(function() {
                     msg.edit("***(...네트워크에 오류가 발생했습니다.)***")
-                }, 1000);
+                }, 700);
             })
     }
 
