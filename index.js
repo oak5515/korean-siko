@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
 const moment = require("moment");
-const prefix = '시코야 ';
+const prefix = '시코야';
 require("moment-duration-format");
 const momenttz = require('moment-timezone');
 const MessageAdd = require('./db/message_add.js')
@@ -91,12 +91,12 @@ client.on('message', async message => {
       }
       }
 
-      if(message.content == '현재 핑') {
+      if(message.content == ' 현재 핑') {
         return message.reply('지금 올라오는 메세지와 방금 입력하신 메세지의 간격이 현재 핑 상태입니다.');
       }
 
 
-      if(message.content == '안녕') {
+      if(message.content == ' 안녕') {
         return message.channel.send("안녕하십니까, " + `<@${message.author.id}>` + "님.")
       }
     
