@@ -182,7 +182,7 @@ client.on('message', (message) => {
   
 
   if (message.content == '시코야 랜덤') {
-      mmessage.channel.send("랜덤 추첨 번호는.. " + getRandomInt(1, 1000) + " 입니다.");
+      message.channel.send("랜덤 추첨 번호는.. " + getRandomInt(1, 1000) + " 입니다.");
     }
 
 
