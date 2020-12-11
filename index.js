@@ -51,50 +51,9 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).split(" "); // 메세지에서 프리픽스의 글자 수만큼 잘라내고, String.split 메서드를 이용하여 Array로 바꾼다.
     const command = args.shift().toLowerCase(); // Array의 첫번 째 값을 없애고 반환하는 Array.shift 메서드에 String.toLowerCase 메서드로 소문자화한다.
 
-    if (command == "" &&! ' ') { //The 8ball Message
-      var msg1 = Array(5); 
-      msg1[1] = "네, 부르셨습니까?";
-      msg1[2] = "부르셨나요?";
-      msg1[3] = "저는 여기 있습니다.";
-      msg1[4] = "부르셨습니까?"
-      msg1[5] = "네, 어떤 일로 부르셨나요?"
-      msg1[6] = "*(커피 엎어지는 소리)*" 
-          var x = getRandomInt(0, 20);
-      if (x < 5){ 
-           if (x < 3){
-            message.channel.send(msg1[1]);
-      }
-      else {
-        message.channel.send(msg1[3]);
-      }
-      }
-      else if (x<= 9) {
-        if (x >= 7){
-          message.channel.send(msg1[2]); }
-          else{
-            message.channel.send(msg1[4]);
-          }
-      } 
-      else if (x <= 17 ) { 
-        message.channel.send(msg1[5]);
-      }
-      else {
-        message.channel.send(msg1[6])
-        .then(msg => {
-                        message.channel.send("***아놔 왜 불렀냐 인간***").then(msg => {
-                        setTimeout(function() {
-                            msg.edit("***앗, 커피가 엎질러졌네요...***")
-                        }, 700);
-                    })
-                  })
-        .catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-      }
-      }
-
     if(command === ' 현재 핑') {
         return message.reply('지금 올라오는 메세지와 방금 입력하신 메세지의 간격이 현재 핑 상태입니다.');
      }
-
 
     if(command === ' 안녕') {
         return message.channel.send("안녕하십니까, " + `<@${message.author.id}>` + "님.")
@@ -107,7 +66,7 @@ client.on('message', async message => {
   
 
   //시코봇 기타 말
-  if (message.content == '쀼삽겹살순뿌겹살 시코야') { //The 8ball Message
+  if (message.content == '시코야') { //The 8ball Message
     var msg1 = Array(5); 
     msg1[1] = "네, 부르셨습니까?";
     msg1[2] = "부르셨나요?";
